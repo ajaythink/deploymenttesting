@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Menus } from "./utils";
+import Logo from "./assets/react.svg";
+import DesktopMenu from "./components/DesktopMenu";
+import MobMenu from "./components/MobMenu";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <header className="h-16 text-[15px] fixed inset-0 flex-center bg-[#18181A] ">
+        <nav className=" px-3.5 flex-center-between w-full max-w-7xl mx-auto">
+          <div className="flex-center gap-x-3 z-[999] relative">
+            <img src={Logo} alt="" className="size-8" />
+            <h3 className="text-lg font-semibold">Framer</h3>
+          </div>
 
-export default App
+          <ul className="gap-x-1 lg:flex-center hidden">
+            {Menus.map((menu) => (
+              <DesktopMenu menu={menu} key={menu.name} />
+            ))}
+          </ul>
+          <div className="flex-center gap-x-5">
+            <button
+              aria-label="sign-in"
+              className="bg-white/5 z-[999] relative px-3 py-1.5 shadow rounded-xl flex-center"
+            >
+              Sign In
+            </button>
+            <div className="lg:hidden">
+              <MobMenu Menus={Menus} />
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div>
+  );
+}
