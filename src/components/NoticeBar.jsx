@@ -1,19 +1,21 @@
+
+import Marquee from "react-fast-marquee";
+import { Rocket } from 'lucide-react';
 const NoticeBar = () => {
   return (
-    <div className="notice-bar bg-red-600 border-white">
-      {/* container box size 100% width and height 2% bg-color white*/}
-      <div className="container box w-full h-8 bg-red">
-        {/* container box size 100% width and height 100% flex-center */}
-        <div className="container box w-full h-full flex-center">
-          {/* text center text white */}
-          <p className="text-center text-white">
-            🚀 &nbsp;Get 30% off on all products. Use code{" "}
-            <strong>FRAMER30</strong>
-          </p>
-        </div>
+    <>
+      <div className="w-full h-1 bg-green-500 ">
+        {/* ANNOUNCEMENT BAR marquee text slider like mean notice */}
       </div>
-    </div>
+      <div className="notice-bar bg-yellow-200 h-7 text-red-600">
+        <Marquee pauseOnHover pauseOnClick autoFill gradient>
+        <Rocket />I can be a React component, multiple React components, or just some
+          text.
+        </Marquee>
+      </div>
+    </>
   );
 };
-
+ 
 export default NoticeBar;
+

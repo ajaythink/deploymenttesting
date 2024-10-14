@@ -4,9 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   @apply bg-[#111] text-gray-300 font-inter;
+} */
+body {
+  @apply text-gray-300 font-inter;
 }
+
 
 @layer components {
   .sub-menu {
